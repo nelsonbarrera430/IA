@@ -2,7 +2,6 @@
 """
 Taller 1 - Inteligencia Artificial
 Aplicativo web con los 4 algoritmos genéticos (interfaz Streamlit).
-Ejecutar con: streamlit run app.py
 """
 
 import numpy as np
@@ -289,7 +288,7 @@ with tab4:
         mejor, hist = ga_mochila(capacidad, metodo)
         peso, valor = np.sum(PESOS[mejor == 1]), np.sum(VALORES[mejor == 1])
         st.success(f"Valor: {valor} | Peso: {peso} / {capacidad}")
-        st.write("Objetos seleccionados:", [i + 1 for i in range(len(mejor)) if mejor[i] == 1])
+        st.write("Objetos seleccionados:", ", ".join(str(i + 1) for i in range(len(mejor)) if mejor[i] == 1))
 
         fig, ax = plt.subplots()
         ax.plot(hist, color='b')
